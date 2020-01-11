@@ -34,4 +34,19 @@ class ShiftTest < Minitest::Test
     expected = ["01", "12", "23", "34"]
     assert_equal expected, @shift.key_grouping
   end
+
+  def test_current_date_returned_as_default
+    shift1 = Shift.new
+    shift2 = Shift.new
+    shift3 = Shift.new
+
+    assert_equal true, shift1.date == shift2.date
+    assert_equal true, shift1.date == shift3.date
+    assert_equal true, shift2.date == shift3.date
+  end
+
+  def test_can_return_squared_date
+    @shift.stubs(:date => "010203")
+    assert_equal "104101209", @shift.squared_date
+  end
 end

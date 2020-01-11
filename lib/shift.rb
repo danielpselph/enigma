@@ -15,6 +15,9 @@ class Shift
     new_keys
   end
 
-  
+  def squared_date
+    (date.to_i ** 2).to_s
+  end
+
 
 end
