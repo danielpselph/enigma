@@ -49,4 +49,10 @@ class ShiftTest < Minitest::Test
     @shift.stubs(:date => "010203")
     assert_equal "104101209", @shift.squared_date
   end
+
+  def test_can_return_offset_date_value
+    @shift.stubs(:date => "190287")
+    assert_equal "36209142369", @shift.squared_date
+    assert_equal "2369", @shift.offset_date
+  end
 end

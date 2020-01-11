@@ -19,5 +19,7 @@ class Shift
     (date.to_i ** 2).to_s
   end
 
-
+  def offset_date
+    squared_date[-4..-1]
+  end
 end
