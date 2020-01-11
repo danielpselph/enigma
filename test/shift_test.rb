@@ -19,6 +19,16 @@ class ShiftTest < Minitest::Test
     assert_equal 6, @shift.date.length
   end
 
+  def test_keys_are_random
+    shift1 = Shift.new
+    shift2 = Shift.new
+    shift3 = Shift.new
+
+    assert_equal false, shift1 == shift2
+    assert_equal false, shift1 == shift3
+    assert_equal false, shift2 == shift3
+  end
+
   def test_keys_can_be_grouped
     @shift.stubs(:key => "01234")
     expected = ["01", "12", "23", "34"]
