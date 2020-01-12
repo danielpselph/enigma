@@ -15,11 +15,31 @@ class Shift
     new_keys
   end
 
+  def key_grouping_int
+    key_grouping.map do |key|
+      key.to_i
+    end
+  end
+
   def squared_date
     (date.to_i ** 2).to_s
   end
 
   def offset_date
-    squared_date[-4..-1]
+    squared_date[-4..-1].split(//)
   end
+
+  def offset_date_int
+    offset_date.map do |date|
+      date.to_i
+    end
+  end
+
+
+  # def shift_key
+  #   final_keys = {}
+  #   require "pry"; binding.pry
+  # end
+
+
 end
