@@ -68,17 +68,11 @@ class ShiftTest < Minitest::Test
     assert_equal expected, @shift.offset_date_int
   end
 
-  def test_can_return_shift_key_values
-    skip
-    @shift.stubs(:key => "35468")
-    @shift.stubs(:date => "101112")
-    assert_equal ["41", "59", "50", "72"], @shift.shift_values
-  end
-
   def test_can_create_key_and_offset_date_hash
-    skip
     @shift.stubs(:key => "35468")
     @shift.stubs(:date => "101112")
+    # @shift.offset_date_int
+    # @shift.key_grouping_int
     expected = {A: 41, B: 59, C: 50, D: 72}
     assert_equal expected, @shift.shift_key
   end
