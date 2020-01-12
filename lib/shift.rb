@@ -34,11 +34,9 @@ class Shift
       date.to_i
     end
   end
-# a.map.with_index { |v, i| v + b[i] }
 
   def shift_key
     final_keys = {}
-    # require "pry"; binding.pry
     final_keys[:A] = offset_date_int[0] + key_grouping_int[0]
     final_keys[:B] = offset_date_int[1] + key_grouping_int[1]
     final_keys[:C] = offset_date_int[2] + key_grouping_int[2]
