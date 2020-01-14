@@ -35,12 +35,21 @@ class Shift
     end
   end
 
+  # def shift_key
+  #   final_keys = {}
+  #   final_keys[:A] = offset_date_int[0] + key_grouping_int[0]
+  #   final_keys[:B] = offset_date_int[1] + key_grouping_int[1]
+  #   final_keys[:C] = offset_date_int[2] + key_grouping_int[2]
+  #   final_keys[:D] = offset_date_int[3] + key_grouping_int[3]
+  #   final_keys
+  # end
+
   def shift_key
-    final_keys = {}
-    final_keys[:A] = offset_date_int[0] + key_grouping_int[0]
-    final_keys[:B] = offset_date_int[1] + key_grouping_int[1]
-    final_keys[:C] = offset_date_int[2] + key_grouping_int[2]
-    final_keys[:D] = offset_date_int[3] + key_grouping_int[3]
+    final_keys = []
+    final_keys << offset_date_int[0] + key_grouping_int[0]
+    final_keys << offset_date_int[1] + key_grouping_int[1]
+    final_keys << offset_date_int[2] + key_grouping_int[2]
+    final_keys << offset_date_int[3] + key_grouping_int[3]
     final_keys
   end
 

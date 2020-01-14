@@ -1,7 +1,7 @@
-require 'minitest/autorun'
-require 'minitest/pride'
+require_relative 'test_helper'
 require 'date'
 require './lib/enigma'
+require './lib/shift'
 
 class EnigmaTest < Minitest::Test
 
@@ -15,10 +15,12 @@ class EnigmaTest < Minitest::Test
 
   def test_can_encrypt_message_with_key_and_date
     expected = {encryption: "keder ohulw", key: "02715", date: "040895"}
+    # require "pry"; binding.pry
     assert_equal expected, @enigma.encrypt("hello world", "02715", "040895")
   end
 
   def test_can_decrypt_message_with_key_and_date
+    skip
     expected = {decryption: "hello world", key: "02715", date: "040895"}
     assert_equal expected, @enigma.decrypt("keder ohulw", "02715", "040895")
   end
