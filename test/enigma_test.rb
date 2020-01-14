@@ -19,6 +19,11 @@ class EnigmaTest < Minitest::Test
     assert_equal expected, @enigma.encrypt("hello world", "02715", "040895")
   end
 
+  def test_can_encrypt_message_with_key_and_date_and_special_char
+    expected = {encryption: "keder, ohulw", key: "02715", date: "040895"}
+    assert_equal expected, @enigma.encrypt("hello, world", "02715", "040895")
+  end
+
   def test_can_encrypt_massage_with_key_and_current_date
     expected = {encryption: "nib udmcxpu", key: "02715", date: "140120"}
     assert_equal expected, @enigma.encrypt("hello world", "02715")
@@ -32,16 +37,21 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_can_decrypt_message_with_key_and_date
-    # skip
     expected = {decryption: "hello world", key: "02715", date: "040895"}
     assert_equal expected, @enigma.decrypt("keder ohulw", "02715", "040895")
   end
+
+  def test_can_decrypt_message_with_key_and_date_and_special_char
+    expected = {decryption: "hello, world", key: "02715", date: "040895"}
+    assert_equal expected, @enigma.decrypt("keder, ohulw", "02715", "040895")
+  end
+
+  def test_can_decrypt_message_with_key_and_current_date
+    @enigma.encrypt("hello world", "56789", "140120")
+    expected = {encryption: "nvituqtwxba", key: "56789", date: "140120"}
+    assert_equal expected, @enigma.encrypt("hello world", "56789", "140120")
+    @enigma.decrypt("nvituqtwxba", "56789", "140120")
+    expected = {decryption: "hello world", key: "56789", date: "140120"}
+    assert_equal expected, @enigma.decrypt("nvituqtwxba", "56789", "140120")
+  end
 end
-
-
-
-
-# #decrypt a message with a key (uses today's date)
-# pry(main) > enigma.decrypt(encrypted[:encryption], "02715")
-# #=> # decryption hash here
-#
