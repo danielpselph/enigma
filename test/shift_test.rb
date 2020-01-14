@@ -5,6 +5,8 @@ require './lib/shift'
 class ShiftTest < Minitest::Test
 
   def setup
+    # key = (Array.new(5) {rand(0..9)})
+    # date = Time.now.strftime("%d%m%y")
     @shift = Shift.new
   end
 
@@ -13,7 +15,7 @@ class ShiftTest < Minitest::Test
   end
 
   def test_it_has_attributes
-    assert_equal Array, @shift.key.class
+    assert_equal String, @shift.key.class
     assert_equal 5, @shift.key.length
     assert_equal String, @shift.date.class
     assert_equal 6, @shift.date.length
@@ -72,7 +74,7 @@ class ShiftTest < Minitest::Test
   def test_can_create_key_and_offset_date_hash
     @shift.stubs(:key => "35468")
     @shift.stubs(:date => "101112")
-    expected = {A: 41, B: 59, C: 50, D: 72}
+    expected = [41, 59, 50, 72]
     assert_equal expected, @shift.shift_key
   end
 end

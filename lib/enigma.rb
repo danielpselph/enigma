@@ -1,6 +1,6 @@
 class Enigma
 
-  def encrypt(message, key = (Array.new(5) {rand(0..9)}), date = Time.now.strftime("%d%m%y")) #set default for key and date in this class
+  def encrypt(message, key = 5.times.map {rand(0..9)}.join, date = Time.now.strftime("%d%m%y")) #set default for key and date in this class
     alphabet = ("a".."z").to_a << " "
     shift_value = Shift.new(key,date).shift_key
     message = message.downcase.split(//)
