@@ -13,7 +13,6 @@ class EnigmaTest < Minitest::Test
     assert_instance_of Enigma, @enigma
   end
 
-
   def test_can_encrypt_message_with_key_and_date
     expected = {encryption: "keder ohulw", key: "02715", date: "040895"}
     assert_equal expected, @enigma.encrypt("hello world", "02715", "040895")
@@ -25,7 +24,7 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_can_encrypt_massage_with_key_and_current_date
-    expected = {encryption: "nib udmcxpu", key: "02715", date: "140120"}
+    expected = {encryption: "nib udmcxpu", key: "02715", date: "150120"}
     assert_equal expected, @enigma.encrypt("hello world", "02715")
   end
 
