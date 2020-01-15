@@ -1,13 +1,13 @@
 class Shift
   attr_reader :key, :date
 
-  def initialize(key = 5.times.map {rand(0..9)}.join, date = Time.now.strftime("%d%m%y"))
+  def initialize(key = 5.times.map {rand(0..9)}.join,
+                  date = Time.now.strftime("%d%m%y"))
     @key = key
     @date = date
   end
 
   def key_grouping
-    # require "pry"; binding.pry
     new_keys = []
     key.split(//).each_cons(2) do |num|
       new_keys << num.join
@@ -35,15 +35,6 @@ class Shift
     end
   end
 
-  # def shift_key
-  #   final_keys = {}
-  #   final_keys[:A] = offset_date_int[0] + key_grouping_int[0]
-  #   final_keys[:B] = offset_date_int[1] + key_grouping_int[1]
-  #   final_keys[:C] = offset_date_int[2] + key_grouping_int[2]
-  #   final_keys[:D] = offset_date_int[3] + key_grouping_int[3]
-  #   final_keys
-  # end
-
   def shift_key
     final_keys = []
     final_keys << offset_date_int[0] + key_grouping_int[0]
@@ -52,6 +43,4 @@ class Shift
     final_keys << offset_date_int[3] + key_grouping_int[3]
     final_keys
   end
-
-
 end

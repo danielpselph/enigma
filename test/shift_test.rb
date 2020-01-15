@@ -5,8 +5,6 @@ require './lib/shift'
 class ShiftTest < Minitest::Test
 
   def setup
-    # key = (Array.new(5) {rand(0..9)})
-    # date = Time.now.strftime("%d%m%y")
     @shift = Shift.new
   end
 
